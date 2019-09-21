@@ -35,7 +35,9 @@ HEADERS  += \
     timestats.h \
     utils.h
 
-QMAKE_CXXFLAGS += -Wno-sign-compare -Wno-unused-parameter -std=c++11 -O3
+unix {
+    QMAKE_CXXFLAGS += -Wno-sign-compare -Wno-unused-parameter -std=c++11 -O3
+}
 
 include(../common.pri)
 

@@ -18,11 +18,12 @@ public:
     MatchShapeEngine() {
         vector<string> baseImgs;
 
+        // TODO: Remove this hardcoded paths
         //baseImgs.push_back("data/match/L1.png");
-        baseImgs.push_back("../data/match/L2.png"); baseThrs.push_back(0.35);
-        baseImgs.push_back("../data/match/L3.png"); baseThrs.push_back(0.35);
-        baseImgs.push_back("../data/match/L9.png"); baseThrs.push_back(0.35);
-        baseImgs.push_back("../data/match/L10.png"); baseThrs.push_back(0.35);
+        baseImgs.push_back("match/L2.png"); baseThrs.push_back(0.35);
+        baseImgs.push_back("match/L3.png"); baseThrs.push_back(0.35);
+        baseImgs.push_back("match/L9.png"); baseThrs.push_back(0.35);
+        baseImgs.push_back("match/L10.png"); baseThrs.push_back(0.35);
 //        baseImgs.push_back("data/match/L11.png"); baseThrs.push_back(0.15);
 //        baseImgs.push_back("data/match/L12.png"); baseThrs.push_back(0.15);
 //        baseImgs.push_back("data/match/L8.png");

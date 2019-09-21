@@ -1,7 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+
+#define _USE_MATH_DEFINES
+#include <cmath>
+
+#ifndef _WIN32
 #include <dirent.h>
+#endif
 
 #include "opencv2/core/core.hpp"
 #include "opencv2/features2d/features2d.hpp"
@@ -293,6 +299,7 @@ void meanStdDevCircular(Mat img, Mat mask, double &mean, double &stdd){
     stdd = rad2deg(sqrt(-log(sumSin*sumSin + sumCos*sumCos)));
 }
 
+#ifndef _WIN32
 void getDirFiles(const string &path, vector<string> &paths){
     DIR *dir;
     struct dirent *lsdir;
@@ -313,6 +320,7 @@ void getDirFiles(const string &path, vector<string> &paths){
 
     closedir(dir);
 }
+#endif
 
 double getMinAngle(Vec2f a, Vec2f b){
     a = normalize(a);

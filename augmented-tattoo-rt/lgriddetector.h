@@ -134,14 +134,16 @@ public:
         if(blobs.size() < 3) return;
 
         // Calculate the distance to all other blobs
-        CDist dists[blobs.size()];
+        std::vector<CDist> dists;
+        dists.resize(blobs.size());
+
         for(int i = 0; i < blobs.size(); i++){
             double distance = norm(base.massCenter - blobs[i].massCenter);
             dists[i] = CDist(distance, 0, i);
         }
 
         // Sort by increasing order
-        qsort(dists, blobs.size(), sizeof(CDist), CDist::compare);
+        qsort(dists.data(), blobs.size(), sizeof(CDist), CDist::compare);
 
         // TODO: Make the combinations
 

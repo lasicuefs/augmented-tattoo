@@ -115,8 +115,7 @@ public:
 //        cout << "Find Window Handle" << hwnd << endl;
 
         while(cap.read(imgManager.originalImg) /*&& escape != 27 && IsWindowVisible(hwnd)*/){
-            cout << "Started Frame: " << currentFrame+1 << endl;
-            process();
+            if (!imgManager.originalImg.empty()) process();
             currentFrame++;
 
             escape = waitKey(waitTime);
@@ -131,8 +130,6 @@ public:
         processTimer.stopAndPrint("Process Loop");
         cout << "Stop Processing" << endl;
         exitFlag = true;
-
-        cout << "Exiting processing..." << endl;
     }
 
     Mat rgbMask;
@@ -173,9 +170,7 @@ public:
         bool foundCircular = circularMarkerDetector.findCircularMarkers(
                     imgManager, centralMarkers, blobs, centers, visibilityMask);
 
-        //cout << "Found Circular: " << foundCircular << endl;
         render(foundCircular);
-        cout << "Rendered" << endl;
     }
 
     void render(bool drawTattoo = false) {
@@ -250,6 +245,7 @@ public:
 
         }
         else {
+            imshow("tattoo", imgManager.img);
             //renderer->update(imgManager.img, centers, drawTattoo);
         }
     }
